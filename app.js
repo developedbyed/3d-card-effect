@@ -9,9 +9,10 @@ const description = document.querySelector(".info h3");
 const sizes = document.querySelector(".sizes");
 
 //Moving Animation Event
-container.addEventListener("mousemove", (e) => {
-  let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-  let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+container.addEventListener("mousemove", ({ pageX, pageY }) => {
+  const { top: topIndent, left: leftIndent, width, height } = container.getBoundingClientRect();
+  let xAxis = -((pageX - leftIndent) - width / 2) / 20;
+  let yAxis = ((pageY - topIndent) - height / 2) / 20;
   card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
 });
 //Animate In
