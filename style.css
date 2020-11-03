@@ -95,3 +95,36 @@ button.active {
   border-radius: 30px;
   font-weight: bolder;
 }
+
+@media(max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+    .card {
+        padding: 0rem 1.2rem;
+        width: 90%;
+        height: fit-content;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .sneaker {
+        width: 100%;
+    }
+    .sneaker img {
+        width: 100%;
+    }
+    .circle {
+        width: 62vw;
+        height: 32vh;
+    }
+    .sizes {
+        flex-wrap: wrap;
+    }
+    .sizes button {
+        margin-bottom: 1.5rem;
+    }
+    .purchase {
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+}

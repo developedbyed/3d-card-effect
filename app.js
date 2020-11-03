@@ -8,14 +8,22 @@ const purchase = document.querySelector(".purchase");
 const description = document.querySelector(".info h3");
 const sizes = document.querySelector(".sizes");
 
+// Multiple event listener function for mobile + desktop events
+const addMultipleEventListeners = (element, events, handler) => {
+    events.forEach(e => element.addEventListener(e, handler))
+}
 //Moving Animation Event
-container.addEventListener("mousemove", (e) => {
-  let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-  let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+addMultipleEventListeners(container, ['mousemove', 'touchmove'], e => {
+  let touch;
+  if (e.changedTouches) {
+    touch = e.changedTouches[0];
+  }
+  let xAxis = (window.innerWidth / 2 - (e.pageX || touch.pageX)) / 25;
+  let yAxis = (window.innerHeight / 2 - (e.pageY || touch.pageY)) / 25;
   card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
 });
 //Animate In
-container.addEventListener("mouseenter", (e) => {
+addMultipleEventListeners(container, ['mouseenter', 'touchstart'], () => {
   card.style.transition = "none";
   //Popout
   title.style.transform = "translateZ(150px)";
@@ -25,7 +33,7 @@ container.addEventListener("mouseenter", (e) => {
   purchase.style.transform = "translateZ(75px)";
 });
 //Animate Out
-container.addEventListener("mouseleave", (e) => {
+addMultipleEventListeners(container, ['mouseleave', 'touchend'], () => {
   card.style.transition = "all 0.5s ease";
   card.style.transform = `rotateY(0deg) rotateX(0deg)`;
   //Popback
