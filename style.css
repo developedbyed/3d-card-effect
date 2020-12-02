@@ -13,6 +13,7 @@ body {
   perspective: 1000px;
 }
 .container {
+  transform-style: preserve-3d;
   width: 50%;
   display: flex;
   justify-content: center;
@@ -28,6 +29,7 @@ body {
 }
 
 .sneaker {
+  transform-style: preserve-3d;
   min-height: 35vh;
   display: flex;
   align-items: center;
@@ -49,6 +51,10 @@ body {
   position: absolute;
   border-radius: 50%;
   z-index: 1;
+}
+
+.info{
+  transform-style: preserve-3d;
 }
 
 .info h1 {
