@@ -94,4 +94,5 @@ button.active {
   cursor: pointer;
   border-radius: 30px;
   font-weight: bolder;
+  margin-bottom: 2em;
 }
